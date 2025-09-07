@@ -34,6 +34,7 @@ Footer with copyright info
 
 6) Responsiveness
 Website must be mobile responsive
+
 7) Create a README file to answer the following question-
 1) What is the difference between var, let, and const?
 2) What is the difference between map(), forEach(), and filter()?
