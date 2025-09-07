@@ -1,0 +1,10 @@
+* {
+     font-family: "Inter", sans-serif;
+ }
+
+.banner-bg-img {
+  background-image: url('../assets/hero-leaf1.png'), url('../assets/hero-leaf2.png');
+   background-repeat: no-repeat, no-repeat;
+   background-position: left top, right bottom;
+  background-size: 300px 280px, 300px 240px; 
+}
