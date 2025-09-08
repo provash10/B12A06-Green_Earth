@@ -32,7 +32,7 @@ Show 3 cards with campaign statistics
 Form: Name, Email, Number of Trees
 Footer with copyright info
 
-6) Responsiveness
+6) Responsiveness  ---->ok
 Website must be mobile responsive
 
 7) Create a README file to answer the following question-
@@ -41,8 +41,9 @@ Website must be mobile responsive
 3) What are arrow functions in ES6?
 4) How does destructuring assignment work in ES6?
 5) Explain template literals in ES6. How are they different from string concatenation?
+
 ⚙️ Functionalities
-Category Loading Load Tree Categories dynamically on the left side.
+Category Loading Load Tree Categories dynamically on the left side. ---->>>> ok
 
 Category Click → Tree Data On clicking a category: load trees of that category.
 
