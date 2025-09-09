@@ -12,24 +12,27 @@ const loadCategories = () => {
         // .then(json => console.log(json))
         // .then(json => console.log(json.categories))
         .then(json => displayCategories(json.categories))
+         .catch(err => console.log(err));
 };
 
 const displayCategories = (categories) => {
-    // console.log(categories); //checked
     const categoriesContainer = document.getElementById("categories-container");
     categoriesContainer.innerHTML = "";
 
     for (let category of categories) {
-        const btnDiv = document.createElement("div");
-        btnDiv.innerHTML = `
-                   <button class="font-semibold px-2 m-2 w-fit rounded-lg hover:bg-[#16a34a]">${category.category_name}</button>
+        const btn = document.createElement("button");
+        btn.textContent = category.category_name; 
+        btn.className = "font-semibold px-2 m-2 w-fit rounded-lg hover:bg-[#16a34a]";
 
-            </button>
-        `;
-        categoriesContainer.append(btnDiv);
+        // click event listener
+        btn.addEventListener("click", () => {
+            loadPlantCategory(category.id);
+        });
+
+        categoriesContainer.appendChild(btn);
     }
-
 };
+
 
 // load categories all Card 2Q
 const loadCard = () => {
@@ -40,21 +43,21 @@ const loadCard = () => {
 
 const displayCard = (cards) => {
     // console.log(Card); // checked
-    const CardContainer = document.getElementById("card-container");
-    CardContainer.innerHTML = "";
+    const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = "";
     for (let card of cards) {
         const btnDiv = document.createElement("div");
         btnDiv.innerHTML = `
 
                     <div class="border p-4 rounded">
                         <div class="bg-[#ededed]">
-                            <img class="w-full h-40 object-cover rounded bg-[#d1d5db]" alt="">
+                            <img src="${card.image}" alt="${card.plant_name}" class="w-full h-40 object-cover rounded bg-[#d1d5db]" alt="">
                         </div>
-                        <h2 class="text-[#1f2937] text-lg font-bold mt-2">Mango Tree</h2>
+                        <h2 class="text-[#1f2937] text-lg font-bold mt-2">${card.name}</h2>
                         <p class="text-[#1f2937] text-xs">A fast-growing tropical tree that produces delicious mangoes
                             in summer.</p>
                         <div class="flex justify-between items-center mt-2">
-                            <span class="text-[#15803d] font-semibold">Fruit Tree</span>
+                            <span class="text-[#15803d] font-semibold">${card.category}</span>
                             <span class="text-[#1f2937] text-xl font-bold">৳ 500</span>
                         </div>
                         <button type="button"
@@ -66,17 +69,51 @@ const displayCard = (cards) => {
 
         `;
 
-        CardContainer.append(btnDiv);
+        cardContainer.append(btnDiv);
     }
 
 };
 
-//load Card by category
+//load category plant
 
+const loadPlantCategory = (id) => {
+    console.log(id);
+    const url =(`https://openapi.programming-hero.com/api/category/${id}`)
+    fetch (url)
+    .then((res)=>res.json())
+    .then(json =>displayCard(json.plants))
+};
 
+const displayPlantCategory = (plants) =>{
+    const plantsContainer = document.getElementById("plants-container");
+    plantsContainer.innerHTML = "";
 
+    for(let plant of plants){
+        const btnDiv = document.createElement("div");
+        btnDiv.innerHTML = `
+        
+        <div class="border p-4 rounded">
+                        <div class="bg-[#ededed]">
+                            <img src="${plant.image}" alt="${plant.plant_name}" class="w-full h-40 object-cover rounded bg-[#d1d5db]" alt="">
+                        </div>
+                        <h2 class="text-[#1f2937] text-lg font-bold mt-2">${plant.plant_name}</h2>
+                        <p class="text-[#1f2937] text-xs">${plant.description}</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[#15803d] font-semibold">${plant.category}</span>
+                            <span class="text-[#1f2937] text-xl font-bold">৳ ${plant.price}</span>
+                        </div>
+                        <button type="button"
+                            class="mt-3 w-full bg-[#15803d] text-[#ffffff] py-2 rounded-full hover:bg-[#16a34a]">
+                            Add to Cart
+                        </button>
+                    </div>
+        
+        `;
+        plantsContainer.append(btnDiv);
+    }
+}
 
-
-
+// loadPlantCategory();
 loadCard();
 loadCategories();
+

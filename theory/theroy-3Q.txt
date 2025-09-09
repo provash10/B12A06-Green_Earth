@@ -2,4 +2,281 @@ Get 🌴plants by categories
 https://openapi.programming-hero.com/api/category/${id}
 
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- title -->
+    <title>Green Earth</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="" type="image/x-icon">
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google font || Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- daisyui & tailwindcss cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        * {
+            font-family: "Inter", sans-serif;
+        }
+    </style>
+
+</head>
+
+<body class="bg-[#f0fdf4]">
+
+    <!-- Header -->
+<header class="bg-[#15803d]">
+  <div class="max-w-[1140px] mx-auto px-4 py-3">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+      
+      <!-- Logo -->
+      <div class="text-center md:text-left mb-2 md:mb-0">
+        <h1 class="text-white text-2xl font-bold">Green Earth</h1>
+      </div>
+
+      <!-- Menu -->
+      <ul class="flex flex-col md:flex-row gap-3 md:gap-5 text-white items-center text-center">
+        <li><a href="">About</a></li>
+        <li><a href="">Gallery</a></li>
+        <li><a href="">Plant a Tree</a></li>
+      </ul>
+
+      <!-- Button -->
+      <div class="mt-3 md:mt-0 text-center md:text-right">
+        <button class="bg-[#facc15] text-[#15803d] rounded-full px-4 py-2 font-semibold">
+          Plant a Tree
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+    <!-- Banner -->
+    <section class="h-64 md:h-80 flex items-center justify-center px-4 text-center
+               bg-[#cff0dc] 
+               bg-none 
+               md:bg-[url('../assets/hero-leaf1.png'),url('../assets/hero-leaf2.png')] 
+               md:bg-no-repeat 
+               md:bg-[position:top_left,top_right] 
+               md:bg-[length:300px_320px,300px_320px]">
+        <div class="max-w-lg">
+            <h1 class="text-[#1f2937] text-2xl md:text-4xl font-bold mb-3">
+                Plant a Tree, Grow a Future
+            </h1>
+            <p class="text-[#1f2937] text-xs md:text-sm mb-4">
+                Join our mission to plant 1 million trees and make the Earth greener for future generations.
+            </p>
+            <button class="bg-[#facc15] text-[#15803d] rounded-full px-6 py-2 font-semibold">
+                Get Involved
+            </button>
+        </div>
+    </section>
+
+    <!-- choose your trees -->
+        <section class="w-[90%] md:w-[1140px] mx-auto my-12">
+            <h1 class="text-[#1f2937] text-center text-2xl mb-6 font-semibold">Choose Your Trees</h1>
+            <div class="flex flex-col md:flex-row gap-4">
+                <!-- Categories -->
+                <div class="w-full md:w-1/6">
+                    <h2 class="text-[#000000] text-xl font-bold mb-2 text-center md:text-left">Categories</h2>
+                    
+                    <!-- onclick="loadProducts()" -->
+                    <h3  class="text-[#ffffff] font-semibold p-2 rounded-lg border-2 w-full bg-[#16a34a] cursor-pointer">All Trees</h3>
+                    <div id="categories-container" class=""></div>
+                    
+                </div>
+
+                <!-- Cards -->
+                <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full md:w-7/12">
+
+                    
+                </div>
+        
+                <!-- Cart -->
+                <div class="w-full md:w-1/6 mt-4 md:mt-0">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h2 class="text-[#000000] text-xl font-bold mb-4 text-center md:text-left">Your Cart</h2>
+                        <p class="text-sm text-gray-600 text-center py-8">Your cart is empty</p>
+                        <div class="mt-4 border-t pt-4">
+                            <div class="flex justify-between mb-2">
+                                <span>Total:</span>
+                                <span class="font-bold">৳ 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- about the campaign -->
+        <section class="w-[90%] md:w-[600px] mx-auto my-10">
+            <h1 class="text-center text-xl font-bold mb-4">About the Campaign</h1>
+            <div class="flex flex-col md:flex-row gap-5 items-center">
+                <div class="w-full md:w-1/2">
+                    <img src="../assets/about.png" alt="about" class="w-full rounded">
+                </div>
+
+                <div class="w-full md:w-1/2 text-center md:text-left">
+    <p class="text-[#1f2937] text-xs mb-3">
+        Green Earth is a global tree plantation initiative. We have already planted over 500,000 trees worldwide. 
+        By joining us, you help restore forests, create habitats for wildlife, and fight climate change.
+    </p>
+    <ul class="list-disc pl-5 text-[#1f2937] text-xs">
+        <li>Restoration of natural habitats</li>
+        <li>Improvement of air quality</li>
+        <li>Support for local communities</li>
+    </ul>
+</div>
+
+            </div>
+        </section>
+
+    <!-- Impact part-->
+        <section class="bg-[#cff0dc]">
+            <div class="w-[90%] md:w-[1140px] mx-auto mt-10 py-10 text-center">
+                <h1 class="text-[#1f2937] text-2xl font-bold mb-4">Our Impact</h1>
+                <div class="flex flex-col sm:flex-row justify-between gap-5">
+                    <div class="bg-[#ffffff] w-full sm:w-1/3 text-[#15803d] py-5 rounded-lg">
+                        <h2 class="text-2xl font-bold">500K+</h2>
+                        <p class="text-[#1f2937] text-xs p-2">Trees Planted</p>
+                    </div>
+                    <div class="bg-[#ffffff] w-full sm:w-1/3 text-[#15803d] py-5 rounded-lg">
+                        <h2 class="text-2xl font-bold">120+</h2>
+                        <p class="text-[#1f2937] text-xs p-2">Communities Involved</p>
+                    </div>
+                    <div class="bg-[#ffffff] w-full sm:w-1/3 text-[#15803d] py-5 rounded-lg">
+                        <h2 class="text-2xl font-bold">30+</h2>
+                        <p class="text-[#1f2937] text-xs p-2">Countries Reached</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Form and copyright-->
+        <section class="bg-[#166534]">
+            <div class="w-[90%] md:w-[400px] mx-auto py-8 rounded">
+                <h1 class="text-xl font-bold text-center mb-3">Plant a Tree Today</h1>
+                <div class="bg-[#15803d] p-5 rounded-md shadow-md">
+                    <form action="" method="post" class="text-center flex flex-col gap-2">
+                        <input type="text" placeholder="Enter Your Name"
+                            class="p-1 rounded-lg w-full bg-[#ffffff] shadow-md border-none">
+                        <input type="email" placeholder="Enter Your Email"
+                            class="p-1 rounded-lg w-full bg-[#ffffff] shadow-md border-none">
+                        <input type="number" placeholder="Number of Trees"
+                            class="p-1 rounded-lg w-full bg-[#ffffff] shadow-md border-none">
+                        <button type="submit"
+                            class="text-xs font-bold border rounded-full w-full bg-yellow-500 py-2 hover:bg-yellow-600 border-none">
+                            Donate Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- copyright -->
+            <div class="bg-[#14532d]">
+                <p class="text-xs text-[#ffffff] font-medium text-center py-4">© 2025 Green Earth. All Rights Reserved.
+                </p>
+            </div>
+        </section>
+
+
+
+    <!-- js -->
+     <script src="./js/script.js"></script>
+</body>
+
+</html>
+
+---------------------
+// console.log("checked ok");
+
+// console.log(lessons);  // 13 data ok
+// 1. get the container & empty
+// 2. get into evey lessons
+// 3. create element
+// 4. append into container
+
+const loadCategories = () => {
+    fetch("https://openapi.programming-hero.com/api/categories")
+        .then((res) => res.json())
+        // .then(json => console.log(json))
+        // .then(json => console.log(json.categories))
+        .then(json => displayCategories(json.categories))
+         .catch(err => console.log(err));
+};
+
+const displayCategories = (categories) => {
+    // console.log(categories); //checked
+    const categoriesContainer = document.getElementById("categories-container");
+    categoriesContainer.innerHTML = "";
+
+    for (let category of categories) {
+        const btnDiv = document.createElement("div");
+        btnDiv.innerHTML = `
+                   <button (${category.category_name}) class="font-semibold px-2 m-2 w-fit rounded-lg hover:bg-[#16a34a]">${category.category_name}</button>
+
+            
+        `;
+        categoriesContainer.append(btnDiv);
+    }
+
+};
+
+// load categories all Card 2Q
+const loadCard = () => {
+    fetch("https://openapi.programming-hero.com/api/plants")
+        .then((res) => res.json())
+        .then(json => displayCard(json.plants))
+};
+
+const displayCard = (cards) => {
+    // console.log(Card); // checked
+    const CardContainer = document.getElementById("card-container");
+    CardContainer.innerHTML = "";
+    for (let card of cards) {
+        const btnDiv = document.createElement("div");
+        btnDiv.innerHTML = `
+
+                    <div class="border p-4 rounded">
+                        <div class="bg-[#ededed]">
+                            <img src="${card.image}" alt="${card.plant_name}" class="w-full h-40 object-cover rounded bg-[#d1d5db]" alt="">
+                        </div>
+                        <h2 class="text-[#1f2937] text-lg font-bold mt-2">Mango Tree</h2>
+                        <p class="text-[#1f2937] text-xs">A fast-growing tropical tree that produces delicious mangoes
+                            in summer.</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[#15803d] font-semibold">Fruit Tree</span>
+                            <span class="text-[#1f2937] text-xl font-bold">৳ 500</span>
+                        </div>
+                        <button type="button"
+                            class="mt-3 w-full bg-[#15803d] text-[#ffffff] py-2 rounded-full hover:bg-[#16a34a]">
+                            Add to Cart
+                        </button>
+                    </div>
+        
+
+        `;
+
+        CardContainer.append(btnDiv);
+    }
+
+};
+
+//load category plant
+
+loadCard();
+loadCategories();
 
