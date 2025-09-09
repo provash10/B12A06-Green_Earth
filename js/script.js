@@ -20,8 +20,6 @@ const hideSpinner = () => {
     spinner.classList.add("hidden");
 };
 
-
-
 // Variables
 
 let cart = [];
@@ -76,9 +74,19 @@ const displayCategories = (categories) => {
         btn.textContent = category.category_name;
         btn.className = "font-semibold px-2 m-2 w-fit rounded-lg hover:bg-[#16a34a]";
 
+          // active button
         btn.addEventListener("click", () => {
+            // remove active display
+            const allButtons = categoriesContainer.querySelectorAll("button");
+            allButtons.forEach(b => b.classList.remove("bg-green-600", "text-white"));
+
+            // set button active
+            btn.classList.add("bg-green-600", "text-white");
+
+            // load plants this category
             loadPlantCategory(category.id);
         });
+        
 
         categoriesContainer.appendChild(btn);
     }
