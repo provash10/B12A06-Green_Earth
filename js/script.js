@@ -78,10 +78,10 @@ const displayCategories = (categories) => {
         btn.addEventListener("click", () => {
             // remove active display
             const allButtons = categoriesContainer.querySelectorAll("button");
-            allButtons.forEach(b => b.classList.remove("bg-green-600", "text-white"));
+            allButtons.forEach(b => b.classList.remove("bg-[#16a34a]", "text-[#ffffff]"));
 
             // set button active
-            btn.classList.add("bg-green-600", "text-white");
+            btn.classList.add("bg-[#16a34a]", "text-[#ffffff]");
 
             // load plants this category
             loadPlantCategory(category.id);
@@ -177,7 +177,7 @@ const updateCartUI = () => {
         cart.forEach((item, i) => {
             cartContent += `<li class="flex justify-between items-center mb-2">
                         ${item.name} - ৳ ${item.price}
-                        <span class="cursor-pointer text-red-500" onclick="removeFromCart(${i})">❌</span>
+                        <span class="cursor-pointer text-[#ef4444]" onclick="removeFromCart(${i})">❌</span>
                     </li>`;
         });
         cartContent += "</ul>";
