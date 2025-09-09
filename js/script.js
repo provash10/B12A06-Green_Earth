@@ -6,6 +6,37 @@
 // 3. create element
 // 4. append into container
 
+// open modal 4
+const openModal = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            const plant = data.plants; // object ধরতে হবে
+
+            // modal data inject
+            document.getElementById("modal-title").textContent = plant.name || "No Name";
+            document.getElementById("modal-image").src = plant.image || "";
+            document.getElementById("modal-description").textContent = plant.description || "No description available.";
+            document.getElementById("modal-category").textContent = `Category: ${plant.category || "N/A"}`;
+            document.getElementById("modal-price").textContent = `৳ ${plant.price || "N/A"}`;
+
+            // modal show
+            const modal = document.getElementById("plant-modal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        })
+        .catch(err => console.error("Modal Error:", err));
+};
+
+const closeModal = () => {
+    const modal = document.getElementById("plant-modal");
+    modal.classList.remove("flex");
+    modal.classList.add("hidden");
+};
+// ============
+
+
+
 const loadCategories = () => {
     fetch("https://openapi.programming-hero.com/api/categories")
         .then((res) => res.json())
@@ -53,7 +84,14 @@ const displayCard = (cards) => {
                         <div class="bg-[#ededed]">
                             <img src="${card.image}" alt="${card.plant_name}" class="w-full h-40 object-cover rounded bg-[#d1d5db]" alt="">
                         </div>
-                        <h2 class="text-[#1f2937] text-lg font-bold mt-2">${card.name}</h2>
+        <h2 onclick="openModal('${card.id}')"
+    class="text-[#1f2937] text-lg font-bold mt-2 cursor-pointer hover:underline">
+    ${card.name}
+</h2>
+
+
+
+
                         <p class="text-[#1f2937] text-xs">A fast-growing tropical tree that produces delicious mangoes
                             in summer.</p>
                         <div class="flex justify-between items-center mt-2">

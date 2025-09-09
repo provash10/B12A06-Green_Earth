@@ -6,7 +6,7 @@ https://openapi.programming-hero.com/api/categories
 Get 🌴plants by categories
 https://openapi.programming-hero.com/api/category/${id}
 https://openapi.programming-hero.com/api/category/1
-Get 🌴Plants Detail
+Get 🌴Plants Detail 4
 https://openapi.programming-hero.com/api/plant/${id}
 https://openapi.programming-hero.com/api/plant/1
 
